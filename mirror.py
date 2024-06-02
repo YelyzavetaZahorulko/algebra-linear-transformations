@@ -9,4 +9,6 @@ def mirror(object, axis):
         matrix = np.array([[-1, 0], [0, -1]])
     else:
         raise ValueError("Axis must be 'x', 'y', or 'both'")
+
+    print(np.dot(object, matrix))
     return np.dot(object, matrix)
