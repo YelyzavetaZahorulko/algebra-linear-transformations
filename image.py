@@ -33,7 +33,7 @@ def show_image(title, image):
     plt.show()
 
 
-image = cv2.imread('image.jpg')
+image = cv2.imread('image.jpeg')
 
 if image is None:
     print("Error: Зображення не знайдено або не вдалося зчитати")
