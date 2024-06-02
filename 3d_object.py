@@ -31,6 +31,18 @@ def shear(object, tx, ty, tz):
     return translated_object
 
 
+def resize(object, sx, sy, sz):
+    S = np.array([
+        [sx, 0, 0],
+        [0, sy, 0],
+        [0, 0, sz]
+    ])
+    resized_object = np.dot(object, S)
+    print("Resized Object:")
+    print(resized_object)
+    return resized_object
+
+
 def plot_3d_object(object, title):
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
@@ -52,11 +64,13 @@ def plot_3d_object(object, title):
     plt.show()
 
 
-print("Original Tetrahedron:")
-print(tetrahedron)
+plot_3d_object(tetrahedron, "Original Tetrahedron")
 
 rotated_tetrahedron = rotate_y(tetrahedron, 45)
 plot_3d_object(rotated_tetrahedron, "Rotated Tetrahedron around Y-axis")
 
 sheared_tetrahedron = shear(tetrahedron, 1, 2, 3)
-plot_3d_object(sheared_tetrahedron, "Translated Tetrahedron")
+plot_3d_object(sheared_tetrahedron, "Sheared Tetrahedron")
+
+resized_tetrahedron = resize(tetrahedron, 2, 0.5, 1.5)
+plot_3d_object(resized_tetrahedron, "Resized Tetrahedron")
